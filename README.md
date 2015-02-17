@@ -18,8 +18,8 @@ Help
 
 ```bash
 go get .
-go run *.go
-go build -o elastic-search-archiver .
+go run cmd/elastic-search-archiver/main.go
+go build -o elastic-search-archiver cmd/elastic-search-archiver/
 ```
 
 ## Liscence

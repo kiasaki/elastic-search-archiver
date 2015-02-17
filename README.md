@@ -11,7 +11,13 @@ delete (forever) indices up to a certain duration, default is not deletion.
 ## Usage
 
 ```
-Help
+Usage of elastic-search-archiver:
+  -archive=false: Pass flag to execute archival
+  -archive-age=360h0m0s: Archive only indices old X time (Default is 15 days written 360h
+  -delete=false: Pass flag to execute deletion
+  -delete-age=720h0m0s: Delete only indices old X time (Default is 30 days written 720h
+  -es-host="": Elastic Search host to delete indices from (required)
+  -prefix="logstash-": Prefix behind ElasticSearch indices to delete or archive
 ```
 
 ## Developing
@@ -19,7 +25,7 @@ Help
 ```bash
 go get .
 go run cmd/elastic-search-archiver/main.go
-go build -o elastic-search-archiver cmd/elastic-search-archiver/
+make build
 ```
 
 ## Liscence

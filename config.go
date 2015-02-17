@@ -51,7 +51,10 @@ func (c Config) Validate() error {
 	if c.Delete && c.DeleteAge == 0 {
 		return errors.New("Can't archive for indices old 0s, pass-in archive-age flag")
 	}
-	if c.ElasticSearch == "" {
+	if c.Archive && c.Delete && c.ArchiveAge >= c.DeleteAge {
+		return errors.New("Age to archive from cannot be bigger than age to delete from")
+	}
+	if c.ElasticSearchHost == "" {
 		return errors.New("ElasticSearch host flag is required")
 	}
 	return nil
